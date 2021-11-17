@@ -18,21 +18,28 @@ class Ship():
 
         self.image.set_colorkey((230, 230, 230))
         #store a decimal value for the ship's center
-        self.center=float(self.rect.centerx)
-
+        self.centerx=float(self.rect.centerx)
+        self.centery=float(self.rect.centery)
         #Movement flag
         self.moving_right=False
         self.moving_left=False
+        self.moving_up=False
+        self.moving_down=False
     
     def update(self):
         """Update the ship's position based on the movement flag"""
         #update the ship's center value, not the rect
         if self.moving_right and self.rect.right<self.screen_rect.right: #have not reached to the right edge
-            self.center+=self.ai_settings.ship_speed_factor
+            self.centerx+=self.ai_settings.ship_speed_factor
         if self.moving_left and self.rect.left>0:
-            self.center-=self.ai_settings.ship_speed_factor
+            self.centerx-=self.ai_settings.ship_speed_factor
+        if self.moving_up and self.rect.top>0:
+            self.centery-=self.ai_settings.ship_speed_factor
+        if self.moving_down and self.rect.bottom<self.screen_rect.bottom:
+            self.centery+=self.ai_settings.ship_speed_factor
         #update rect object from self.center
-        self.rect.centerx=self.center 
+        self.rect.centerx=self.centerx 
+        self.rect.centery=self.centery
     def blitme(self):
         """
         Draw the ship at its current location.
