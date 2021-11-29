@@ -25,6 +25,8 @@ class Ship():
         self.moving_left=False
         self.moving_up=False
         self.moving_down=False
+
+        self.centership=False
     
     def update(self):
         """Update the ship's position based on the movement flag"""
@@ -40,11 +42,19 @@ class Ship():
         #update rect object from self.center
         self.rect.centerx=self.centerx 
         self.rect.centery=self.centery
+
+        if self.centership:
+            self.rect.bottom=self.screen_rect.bottom
     def blitme(self):
         """
         Draw the ship at its current location.
         """
+        #print("blitme self.centerx",self.centerx)
+        #print("blitme rect.centerx",self.rect.centerx)
+        #print("blitme",self.rect)
         self.screen.blit(self.image,self.rect)
     def center_ship(self):
         """Center the ship on the screen."""
         self.centerx=self.screen_rect.centerx
+        #self.centery=self.screen_rect.bottom
+        self.centership=True 
