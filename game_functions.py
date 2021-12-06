@@ -65,7 +65,9 @@ def check_play_button(event,ai_settings,screen,stats,play_button,ship,aliens,bul
     """Start a new game when the player clicks Play."""
     button_clicked=play_button.rect.collidepoint(mouse_x,mouse_y)
     if button_clicked and not stats.game_active:
-        start_game(event,ai_settings,screen,stats,aliens,bullets,ship)
+        #Reset the game settings
+        #ai_settings.initialize_dynamic_settings()
+        start_game(ai_settings,screen,stats,aliens,bullets,ship)
 
 def update_screen(ai_settings,screen,stats, ship,aliens,bullets,play_button):
     """Update images on the screen and flip to the new screen."""
@@ -101,6 +103,7 @@ def check_bullet_alien_collisions(ai_settings,screen,ship,aliens,bullets):
     if len(aliens)==0:
         #Destroy existing bullets and create new fleet.
         bullets.empty()
+        ai_settings.increase_speed()
         create_fleet(ai_settings,screen,ship,aliens)
 
 def fire_bullet(ai_settings,screen,ship,bullets):
