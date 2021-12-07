@@ -7,6 +7,28 @@ The number in the middle is highest scores.
 
 When the entire fleet of aliens is destroyed, level will be increased by 1.
 
-### To Play: click the play button or press 'P' on keyboard
+### Requeriments: 
+- Python 3.0+ 
+- Pygame
+
+### How To Play: 
+#### Cloning the Repository
+```
+$ git clone https://github.com/YiranXu/Alien_Invasion_game
+$ cd Alien_Invasion_game
+```
+#### Running
+```
+$ python invasion.py
+```
+
+### Controls:
+click 'Play' button or press 'P' to play.
+
+-space bar: shoot
+
+-Arrow keys (left / right/ up/ down): move the ship left/ right /up / down
+
+
 
 
