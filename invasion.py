@@ -29,6 +29,11 @@ def run_game():
     #Create the fleet of aliens
     gf.create_fleet(ai_settings,screen,ship,aliens)
     #Start the main loop for the game
+
+    #read highscore file to get current all-time high scode
+    file=open('highscore.txt','r')
+    stats.high_score=int(file.readline())
+    file.close()
     while True:
         #watch for keyboard and mouse events
         gf.check_events(ai_settings,screen,stats,sb,play_button,ship,aliens,bullets)

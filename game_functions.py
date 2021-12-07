@@ -39,6 +39,9 @@ def check_keydown_events(event,ai_settings,stats,sb,aliens,screen,ship,bullets):
     elif event.key==pygame.K_SPACE:
         fire_bullet(ai_settings,screen,ship,bullets)
     elif event.key==pygame.K_q:
+        file=open("highscore.txt",'w')
+        file.write(str(stats.high_score))
+        file.close()
         sys.exit()
     elif event.key==pygame.K_p:
         start_game(ai_settings,screen,stats,sb,aliens,bullets,ship)
